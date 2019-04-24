@@ -6,8 +6,8 @@
 
 #### 为什么有这个项目?
 
-首先,完整的sql语句语法是很复杂的,有sql标准的,也有各个db的方言,以MySQL为例:[SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax.html)
-而某些场景下,我们仅需要解析sql的一小部分,如:读写分离判断,还有很多互联网场景,这样,battp-sql-parser应运而生.
+- 首先,完整的sql语句语法是很复杂的,有sql标准的,也有各个db的方言,以MySQL为例:[SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax.html)
+- 而某些场景下,我们仅需要解析sql的一小部分,如:读写分离判断,还有很多互联网场景,这样,battp-sql-parser应运而生.
 
 #### 当前开源的sql parser状况?
 

@@ -5,7 +5,7 @@ public enum Literals implements TokenType {
     INT,
     FLOAT,
     HEX,
-    CHARS,
+    STRING,
     IDENTIFIER,
     VARIABLE
 

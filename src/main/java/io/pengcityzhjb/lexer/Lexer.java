@@ -8,10 +8,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Lexer {
 
-    private String sqlText;
-    private int offset;
-    private Dictionary dictionary;
+    private final String sqlText;
+    private final Dictionary dictionary;
 
+    private int offset;
     @Getter
     private Token token;
 

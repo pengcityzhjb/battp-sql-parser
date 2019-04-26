@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public final class Token {
-    private final String literals;
     private final TokenType type;
+    private final String literals;
     private final int endPos;
 }

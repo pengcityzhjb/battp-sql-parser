@@ -2,6 +2,7 @@ package io.pengcityzhjb.lexer;
 
 import io.pengcityzhjb.lexer.token.Assist;
 import io.pengcityzhjb.lexer.token.Literals;
+import io.pengcityzhjb.lexer.token.Symbol;
 import io.pengcityzhjb.lexer.token.Token;
 import io.pengcityzhjb.lexer.util.Dictionary;
 import io.pengcityzhjb.lexer.util.LexerHelper;
@@ -20,16 +21,14 @@ public class Lexer {
 
     public final void nextToken() {
         skipIgnoredToken();
-        if (true) {
-
-        } else if (true) {
-
-        } else if (true) {
-
-        } else if (true) {
-
-        } else if (true) {
-
+        if (isVariableBegin()) {
+            token = scanVariable();
+        } else if (isIdentifierBegin()) {
+            token = scanIdentifier();
+        } else if (isNumberBegin()) {
+            token = scanNumber();
+        } else if (isSymbolBegin()) {
+            token = scanSymbol();
         } else if (isStringBegin()) {
             token = scanString();
         } else if (isEnd()) {
@@ -37,6 +36,27 @@ public class Lexer {
         } else {
             token = new Token(Assist.END, "", offset);
         }
+    }
+
+    private Token scanNumber() {
+        return null;
+    }
+
+    private Token scanIdentifier() {
+        return null;
+    }
+
+    private Token scanVariable() {
+        return null;
+    }
+
+    private Token scanSymbol() {
+        int mark = offset++;
+        while (isSymbolBegin()) {
+            offset++;
+        }
+        String literals = sqlText.substring(mark, offset);
+        return new Token(Symbol.literalsOf(literals), literals, offset);
     }
 
     private Token scanString() {
@@ -60,5 +80,28 @@ public class Lexer {
 
     public boolean isStringBegin() {
         return '\'' == sqlText.charAt(offset) || '\"' == sqlText.charAt(offset);
+    }
+
+    public boolean isSymbolBegin() {
+        char ch = sqlText.charAt(offset);
+        return '(' == ch || ')' == ch || '[' == ch || ']' == ch || '{' == ch || '}' == ch
+                || '+' == ch || '-' == ch || '*' == ch || '/' == ch || '%' == ch || '^' == ch || '=' == ch
+                || '>' == ch || '<' == ch || '~' == ch || '!' == ch || '?' == ch || '&' == ch || '|' == ch
+                || '.' == ch || ':' == ch || '#' == ch || ',' == ch || ';' == ch;
+    }
+
+    public boolean isVariableBegin() {
+        //TODO
+        return false;
+    }
+
+    public boolean isIdentifierBegin() {
+        //TODO
+        return false;
+    }
+
+    public boolean isNumberBegin() {
+        //TODO
+        return false;
     }
 }
